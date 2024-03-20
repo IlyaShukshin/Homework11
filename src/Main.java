@@ -9,8 +9,12 @@ public class Main {
         checkOS(2020, 0);
 
         System.out.println("Tack 3");
-        calculationDelivery(95);
-
+        int deliveryDistance = calculationDelivery(195);
+        if (deliveryDistance == -1) {
+            System.out.println("Свыше 100 км доставки нет");
+        } else {
+            System.out.println("Потребуется дней: " + deliveryDistance);
+        }
     }
 
     public static void isLeapYear(int year) {
@@ -35,19 +39,16 @@ public class Main {
         }
     }
 
-    public static void calculationDelivery(int deliveryDistance) {
-        int deliveryTime;
+    public static int calculationDelivery(int deliveryDistance) {
+
         if (deliveryDistance <= 20) {
-            deliveryTime = 1;
-            System.out.println("Потребуется дней: " + deliveryTime);
+            return 1;
         } else if (deliveryDistance >= 20 && deliveryDistance <= 60) {
-            deliveryTime = 2;
-            System.out.println("Потребуется дней: " + deliveryTime);
+            return 2;
         } else if (deliveryDistance >= 60 && deliveryDistance <= 100) {
-            deliveryTime = 3;
-            System.out.println("Потребуется дней: " + deliveryTime);
+            return 3;
         } else {
-            System.out.println("Свыше 100 км доставки нет");
+            return -1;
         }
     }
 }
