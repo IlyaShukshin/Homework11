@@ -9,7 +9,7 @@ public class Main {
         checkOS(2020, 0);
 
         System.out.println("Tack 3");
-        int deliveryDistance = calculationDelivery(195);
+        int deliveryDistance = calculationDelivery(95);
         if (deliveryDistance == -1) {
             System.out.println("Свыше 100 км доставки нет");
         } else {
@@ -18,11 +18,12 @@ public class Main {
     }
 
     public static void isLeapYear(int year) {
-        if (year > 1584 && year % 4 == 0 && year % 100 != 0) {
+        if (year > 1584 && year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             System.out.println(year + " год - високосный год.");
         } else {
             System.out.println(year + " год - невисокосный год.");
         }
+
     }
 
     public static void checkOS(int clientDeviceYear, int clientOS) {
@@ -43,9 +44,9 @@ public class Main {
 
         if (deliveryDistance <= 20) {
             return 1;
-        } else if (deliveryDistance >= 20 && deliveryDistance <= 60) {
+        } else if (deliveryDistance <= 60) {
             return 2;
-        } else if (deliveryDistance >= 60 && deliveryDistance <= 100) {
+        } else if (deliveryDistance <= 100) {
             return 3;
         } else {
             return -1;
